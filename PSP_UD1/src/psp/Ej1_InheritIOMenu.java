@@ -2,7 +2,7 @@ package psp;
 
 import java.util.Scanner;
 
-public class Ej1_InheritIO {
+public class Ej1_InheritIOMenu {
     
     public static void main(String[] args)  throws Exception {
 
@@ -19,6 +19,12 @@ public class Ej1_InheritIO {
             switch (res) {
                 case 1:
                     int return_code = new ProcessBuilder(Utils.sh("ping www.google.com")).inheritIO().start().waitFor();
+                    break;
+                case 2:
+                    return_code = new ProcessBuilder(Utils.sh("uname -a")).inheritIO().start().waitFor();
+                    break;
+                case 3:
+                    return_code = new ProcessBuilder(Utils.sh("hostnamectl")).inheritIO().start().waitFor();
                     break;
                 case 0:
                     System.out.println("Saliendo...");
